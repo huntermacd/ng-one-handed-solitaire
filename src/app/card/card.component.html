@@ -1,3 +1,3 @@
-<div [class.selected]="selected" (click)="select(card)">
+<div class="card" [class.hidden]="!shown" [class.selected]="selected" (click)="select(card)">
   {{ card.rank }} of <span [innerHTML]="card.symbol"></span>
 </div>

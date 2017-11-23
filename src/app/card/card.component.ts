@@ -7,6 +7,8 @@ import { Component, Input } from '@angular/core';
 })
 export class CardComponent {
   @Input() card;
+  @Input() slot;
+  @Input() shown;
   selected = false;
 
   constructor() { }

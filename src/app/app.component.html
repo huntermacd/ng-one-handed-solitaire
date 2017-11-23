@@ -1,4 +1,6 @@
 <button (click)="newGame()">New</button>
-<div *ngFor="let card of tableau">
-  <app-card [card]="card"></app-card>
+<button [disabled]="deck.length < 1" (click)="draw()">Draw</button>
+<button (click)="score()">Score</button>
+<div *ngFor="let card of hand; index as i">
+  <app-card [shown]="i >= hand.length - 4" [card]="card"></app-card>
 </div>
