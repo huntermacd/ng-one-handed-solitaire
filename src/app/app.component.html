@@ -1,3 +1,4 @@
-<div *ngFor="let card of deck$ | async">
+<button (click)="newGame()">New</button>
+<div *ngFor="let card of tableau">
   {{ card.rank }} of <span [innerHTML]="card.symbol"></span>
 </div>
