@@ -1,27 +1,18 @@
-import { Component, OnInit } from '@angular/core';
-
-/*
-
-properties:
-
-- card
-
-methods:
-
-- select
-
-*/
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.css']
 })
-export class CardComponent implements OnInit {
+export class CardComponent {
+  @Input() card;
+  selected = false;
 
   constructor() { }
 
-  ngOnInit() {
+  select(card) {
+    this.selected = !this.selected;
   }
 
 }

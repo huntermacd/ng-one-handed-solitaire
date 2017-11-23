@@ -1,4 +1,4 @@
 <button (click)="newGame()">New</button>
 <div *ngFor="let card of tableau">
-  {{ card.rank }} of <span [innerHTML]="card.symbol"></span>
+  <app-card [card]="card"></app-card>
 </div>

@@ -1,28 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AppService } from './app.service';
 
-/*
-
-properties:
-
-- deck
-- numSelected
-- tableau
-
-UI:
-
-- new game
-- score
-- end game
-
-methods:
-
-- newGame
-- score
-- endGame
-
-*/
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
