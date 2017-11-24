@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AppService } from './app.service';
 
 @Component({
@@ -6,12 +6,17 @@ import { AppService } from './app.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   deck = [];
   hand = [];
   selected = [];
+  showGameEnd = false;
 
   constructor(private appService: AppService) { }
+
+  ngOnInit() {
+    this.newGame();
+  }
 
   shuffle(deck) {
     let m = deck.length, t, i;
@@ -34,11 +39,12 @@ export class AppComponent {
   newGame() {
     this.selected.length = 0;
     this.appService.loadDeck()
-      .subscribe(deck => {
-        this.deck = this.shuffle(deck);
-        this.hand.length = 0;
-        this.draw(4);
-      });
+    .subscribe(deck => {
+      this.deck = this.shuffle(deck);
+      this.hand.length = 0;
+      this.showGameEnd = false;
+      this.draw(4);
+    });
   }
 
   async draw(num = 1) {
@@ -99,5 +105,9 @@ export class AppComponent {
     } else {
       this.selected.push(card);
     }
+  }
+
+  endGame() {
+    this.showGameEnd = true;
   }
 }
