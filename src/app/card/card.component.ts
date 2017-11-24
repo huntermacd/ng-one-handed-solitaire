@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-card',
@@ -9,12 +9,7 @@ export class CardComponent {
   @Input() card;
   @Input() slot;
   @Input() shown;
-  selected = false;
-
-  constructor() { }
-
-  select(card) {
-    this.selected = !this.selected;
-  }
-
+  @Input() last;
+  @Input() selected;
+  @Output() addSelection = new EventEmitter();
 }

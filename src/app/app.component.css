@@ -1,0 +1,9 @@
+.hand {
+  overflow: hidden;
+  margin-top: 12px;
+  padding-top: 12px;
+}
+
+.hand > div {
+  margin-left: 50%;
+}

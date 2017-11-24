@@ -9,6 +9,7 @@ import { AppService } from './app.service';
 export class AppComponent {
   deck = [];
   hand = [];
+  selected = [];
 
   constructor(private appService: AppService) { }
 
@@ -36,8 +37,17 @@ export class AppComponent {
   }
 
   draw() {
+    this.selected.length = 0;
     this.hand = [...this.hand, this.deck.shift()];
   }
 
   score() {}
+
+  addSelection(card) {
+    if (this.selected.includes(card)) {
+      this.selected.splice(this.selected.indexOf(card), 1);
+    } else {
+      this.selected.push(card);
+    }
+  }
 }

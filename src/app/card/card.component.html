@@ -1,3 +1,4 @@
-<div class="card" [class.hidden]="!shown" [class.selected]="selected" (click)="select(card)">
-  {{ card.rank }} of <span [innerHTML]="card.symbol"></span>
+<div *ngIf="shown" class="card" [class.full]="last" (click)="addSelection.emit(card)" [class.selected]="selected">
+  <span>{{ card.rank }}<span [innerHTML]="card.symbol"></span></span>
 </div>
+<div *ngIf="!shown" class="hidden"></div>
