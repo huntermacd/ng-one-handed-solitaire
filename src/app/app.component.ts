@@ -27,21 +27,71 @@ export class AppComponent {
       return deck;
   }
 
+  sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
+
   newGame() {
+    this.selected.length = 0;
     this.appService.loadDeck()
       .subscribe(deck => {
         this.deck = this.shuffle(deck);
-        this.hand = this.deck.slice(0, 4);
-        this.deck = this.deck.slice(4);
+        this.hand.length = 0;
+        this.draw(4);
       });
   }
 
-  draw() {
+  async draw(num = 1) {
     this.selected.length = 0;
+    await this.sleep(500);
     this.hand = [...this.hand, this.deck.shift()];
+
+    if (num > 1) {
+      for (let i = 1; i < num; i++) {
+        await this.sleep(500);
+        this.hand = [...this.hand, this.deck.shift()];
+      }
+    }
   }
 
-  score() {}
+  checkFill() {
+    switch(this.hand.length) {
+      case 3:
+        this.draw(1);
+        break;
+      case 2:
+        this.draw(2);
+        break;
+      case 1:
+        this.draw(3);
+        break;
+      case 0:
+        this.draw(4);
+        break;
+      default:
+        return;
+    }
+  }
+
+  score() {
+    const len = this.hand.length;
+    const cardA = this.hand[len - 1];
+    const cardB = this.hand[len - 2];
+    const cardC = this.hand[len - 3];
+    const cardD = this.hand[len - 4];
+    if (this.selected.length === 2) {
+      if (cardA.suit === cardD.suit) {
+        this.hand.splice(this.hand.indexOf(cardC), 2);
+        this.checkFill();
+      }
+    } else {
+      if (cardA.rank === cardD.rank) {
+        this.hand.splice(len - 4);
+        this.checkFill();
+      }
+    }
+    this.selected.length = 0;
+  }
 
   addSelection(card) {
     if (this.selected.includes(card)) {

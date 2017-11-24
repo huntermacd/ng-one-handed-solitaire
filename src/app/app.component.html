@@ -1,6 +1,6 @@
 <button (click)="newGame()">New</button>
 <button [disabled]="deck.length < 1" (click)="draw()">Draw</button>
-<button (click)="score()">Score</button>
+<button [disabled]="(selected.length === 0 || selected.length % 2 !== 0)" (click)="score()">Score</button>
 <div class="hand">
   <div *ngFor="let card of hand; index as i; last as isLast">
     <app-card (addSelection)="addSelection(card)" [selected]="selected.includes(card)" [last]="isLast" [shown]="i >= hand.length - 4" [card]="card"></app-card>
