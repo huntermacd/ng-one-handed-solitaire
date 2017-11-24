@@ -1,9 +1,11 @@
 .card {
   background-color: white;
-  border-top: 1px solid black;
+  border: 1px solid black;
   border-radius: 15px 15px 0 0;
   height: 45px;
   width: 250px;
+  border-bottom: 0;
+  margin-bottom: -12px;
 }
 
 .card > span {
@@ -17,6 +19,7 @@
   border: 1px solid black;
   border-radius: 15px;
   height: 350px;
+  margin-bottom: 0;
 }
 
 .selected {
@@ -25,8 +28,10 @@
 
 .hidden {
   height: 25px;
-  border-top: 1px solid black;
+  border: 1px solid black;
+  border-bottom: 0;
   width: 250px;
   border-radius: 15px;
-  margin-bottom: -20px;
+  margin-bottom: -22px;
+  background-color: white; 
 }
