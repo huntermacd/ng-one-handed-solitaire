@@ -1,7 +1,68 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 12px;
+  border-bottom: 2px solid lightgray;
+}
+
+.header p {
+  font-size: 1.25em;
+  font-family: sans-serif;
+}
+
+.score {
+  display: flex;
+  justify-content: center;
+}
+
+.score > p {
+  background-color: lawngreen;
+  padding: 10px;
+  border-radius: 2px;
+  font-weight: bold;
+}
+
+.score span {
+  background-color: white;
+  padding: 3px;
+  border-radius: 4px;
+  margin-right: 10px;
+  font-weight: normal;
+}
+
+.controls {
+  display: inline-flex;
+  flex-direction: column;
+  position: absolute;
+  top: 25%;
+  width: 50%;
+}
+
+.controls button {
+  margin: 0 auto;
+}
+
+.controls button:first-of-type {
+  margin-bottom: 25px;
+}
+
 .hand {
   overflow: hidden;
 }
 
 .hand > div {
   margin-left: 50%;
+}
+
+.end {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  justify-content: center;
+}
+
+.end p {
+  font-size: 2em;
 }

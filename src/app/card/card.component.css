@@ -9,8 +9,8 @@
 }
 
 .card > span {
-  font-size: 2.2em;
-  font-family: monospace;
+  font-size: 2em;
+  font-family: serif;
   padding-left: 10px;
   display: inline-block;
 }
