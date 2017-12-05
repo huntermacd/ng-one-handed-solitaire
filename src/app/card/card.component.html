@@ -1,8 +1,0 @@
-<div *ngIf="shown" class="card" [class.full]="last" (click)="addSelection.emit(card)" [class.selected]="selected">
-  <div class="rank-symbol" [class.red]="card.suit === 'hearts' || card.suit === 'diamonds'">
-    <span>{{ card.rank }}</span>
-    <span class="symbol" [innerHTML]="card.symbol"></span>
-  </div>
-  <div class="bg"></div>
-</div>
-<div *ngIf="!shown" class="hidden"></div>
