@@ -1,23 +1,22 @@
 <div class="header">
-  <p>one-handed solitaire</p>
-  <button mat-raised-button color="primary" (click)="newGame()">New</button>
+  <p>One-Handed Solitaire</p>
+  <button mat-raised-button color="warn" (click)="newGame()">New</button>
 </div>
 <div *ngIf="!showGameEnd">
-  <div class="score">
-      <p><span>score</span>{{hand.length}}</p>
-  </div>
-  <div class="controls">
-      <button mat-raised-button color="warn" [disabled]="(selected.length === 0 || selected.length % 2 !== 0)" (click)="score()">Score</button>
-      <button mat-raised-button color="accent" *ngIf="!this.deck.length" (click)="endGame()">End Game</button>
-      <button mat-raised-button color="accent" *ngIf="this.deck.length" (click)="draw()">Draw ({{deck.length}})</button>
-  </div>
-  <div class="hand">
-    <div *ngFor="let card of hand; index as i; last as isLast">
-      <app-card (addSelection)="addSelection(card)" [selected]="selected.includes(card)" [last]="isLast" [shown]="i >= hand.length - 4" [card]="card"></app-card>
+  <div class="controls-hand">
+    <div class="controls">
+      <button mat-raised-button color="warn" [disabled]="(selected.length === 0 || selected.length % 2 !== 0)" (click)="score()">Score ({{hand.length}})</button>
+      <button mat-raised-button color="primary" *ngIf="!this.deck.length" (click)="endGame()">End Game</button>
+      <button mat-raised-button color="primary" *ngIf="this.deck.length" (click)="draw()">Draw ({{deck.length}})</button>
+    </div>
+    <div class="hand">
+      <div *ngFor="let card of hand; index as i; last as isLast">
+        <app-card (addSelection)="addSelection(card)" [selected]="selected.includes(card)" [last]="isLast" [shown]="i >= hand.length - 4" [card]="card"></app-card>
+      </div>
     </div>
   </div>
 </div>
 <div class="end" *ngIf="showGameEnd">
-  <p>you scored</p>
+  <p>Final Score</p>
   <p>{{hand.length}}</p>
 </div>

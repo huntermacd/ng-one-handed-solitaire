@@ -2,8 +2,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 0 12px;
-  border-bottom: 2px solid lightgray;
+  padding: 0 12px;
+  background-color: #3f51b5;
+  color: white;
 }
 
 .header p {
@@ -11,48 +12,30 @@
   font-family: sans-serif;
 }
 
-.score {
+.header button {
+  width: 92px;
+}
+
+.controls-hand {
   display: flex;
-  justify-content: center;
-}
-
-.score > p {
-  background-color: lawngreen;
-  padding: 10px;
-  border-radius: 2px;
-  font-weight: bold;
-}
-
-.score span {
-  background-color: white;
-  padding: 3px;
-  border-radius: 4px;
-  margin-right: 10px;
-  font-weight: normal;
+  margin-top: 20px;
 }
 
 .controls {
-  display: inline-flex;
-  flex-direction: column;
-  position: absolute;
-  top: 25%;
   width: 50%;
+  display: flex;
+  flex-direction: column;
 }
 
 .controls button {
-  margin: 0 auto;
-}
-
-.controls button:first-of-type {
-  margin-bottom: 25px;
+  margin: 10px;
+  width: 92px;
+  align-self: center;
+  padding: 0 10px;
 }
 
 .hand {
-  overflow: hidden;
-}
-
-.hand > div {
-  margin-left: 50%;
+  width: 50%;
 }
 
 .end {
@@ -65,4 +48,6 @@
 
 .end p {
   font-size: 2em;
+  margin: 0;
+  color: #3f51b5;
 }
